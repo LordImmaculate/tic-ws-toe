@@ -1,0 +1,32 @@
+{
+  "name": "rspack-react-elysia-boilerplate",
+  "module": "index.ts",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "^1.2.0",
+    "bun-types": "^1.2.0",
+    "concurrently": "^8.2.1"
+  },
+  "author": {
+    "name": "crqch",
+    "url": "https://github.com/crqch/"
+  },
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf node_modules packages/server/node_modules packages/client/node_modules",
+    "dev:client": "cd packages/client && bun run dev",
+    "dev:server": "cd packages/server && bun run dev",
+    "dev": "concurrently \"bun run dev:server\" \"bun run dev:client\"",
+    "prisma:generate": "cd packages/server && bun prisma generate",
+    "prisma:migrate": "cd packages/server && bun prisma migrate dev",
+    "prisma:studio": "cd packages/server && bun prisma studio",
+    "prisma:migrate:prod": "cd packages/server && dotenv -e .env.prod -- bun prisma migrate deploy"
+  },
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "vite-plugin-checker": "^0.9.0"
+  }
+}

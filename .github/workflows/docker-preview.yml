@@ -1,0 +1,21 @@
+name: Docker Preview Image CI
+
+on:
+  push:
+    branches:
+      - preview
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile -t ghcr.io/${{ github.repository }}/backend-preview:latest --build-arg ENV=PREVIEW
+      - name: Push Docker image to GitHub Packages
+        run: docker push ghcr.io/${{ github.repository }}/backend-preview:latest
+      - name: Logout from GitHub Container Registry
+        run: docker logout ghcr.io
