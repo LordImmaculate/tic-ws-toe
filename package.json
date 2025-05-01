@@ -3,8 +3,7 @@
   "module": "index.ts",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@types/bun": "^1.2.0",
-    "bun-types": "^1.2.0",
+    "@types/bun": "^1.2.11",
     "concurrently": "^8.2.1"
   },
   "author": {
@@ -27,6 +26,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "bun-types": "^1.2.11",
     "js-cookie": "^3.0.5",
     "vite-plugin-checker": "^0.9.0"
   }
