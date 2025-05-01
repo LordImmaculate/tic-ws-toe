@@ -1,5 +1,5 @@
 {
-  "name": "rspack-react-elysia-boilerplate",
+  "name": "tic-ws-toe",
   "module": "index.ts",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
