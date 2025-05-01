@@ -6,7 +6,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/main.ts --LOCAL"
+    "dev": "bun run --watch src/main.ts --LOCAL",
+    "prod": "bun run src/main.ts",
+    "build": "cd src && bun run build"
   },
   "dependencies": {
     "@elysiajs/cors": "^0.7.1",

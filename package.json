@@ -16,15 +16,15 @@
     "dev:client": "cd packages/client && bun run dev",
     "dev:server": "cd packages/server && bun run dev",
     "dev": "concurrently \"bun run dev:server\" \"bun run dev:client\"",
+    "prod:client": "cd packages/client && bun run build",
+    "prod:server": "cd packages/server && bun run prod",
     "prisma:generate": "cd packages/server && bun prisma generate",
     "prisma:migrate": "cd packages/server && bun prisma migrate dev",
     "prisma:studio": "cd packages/server && bun prisma studio",
     "prisma:migrate:prod": "cd packages/server && dotenv -e .env.prod -- bun prisma migrate deploy"
   },
   "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "dependencies": {
     "bun-types": "^1.2.11",
     "js-cookie": "^3.0.5",
